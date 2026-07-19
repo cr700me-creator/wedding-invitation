@@ -1,7 +1,28 @@
-// =========================
-// عناصر الصفحة
-// =========================
+const envelope=document.getElementById("envelope");
 
+const loader=document.getElementById("loader");
+
+const main=document.getElementById("mainPage");
+
+envelope.onclick=()=>{
+
+    envelope.classList.add("open");
+
+    setTimeout(()=>{
+
+        loader.style.opacity="0";
+
+    },1700);
+
+    setTimeout(()=>{
+
+        loader.style.display="none";
+
+        main.style.display="block";
+
+    },2400);
+
+};
 const loader = document.getElementById("loader");
 const mainPage = document.getElementById("mainPage");
 const openBtn = document.getElementById("openInvitation");
