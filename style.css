@@ -240,3 +240,22 @@ opacity:1;
 transform:scale(1);
 filter:blur(0);
 }
+.btn{
+    animation:glow 2.5s infinite;
+}
+
+@keyframes glow{
+
+0%{
+box-shadow:0 0 8px rgba(212,175,55,.2);
+}
+
+50%{
+box-shadow:0 0 30px rgba(212,175,55,.8);
+}
+
+100%{
+box-shadow:0 0 8px rgba(212,175,55,.2);
+}
+
+}
