@@ -287,3 +287,22 @@ box-shadow:0 0 8px rgba(212,175,55,.2);
 }
 
 }
+.card p{
+
+font-size:22px;
+
+margin:20px 0;
+
+line-height:2;
+
+}
+
+.card h2{
+
+color:#d4af37;
+
+font-size:36px;
+
+margin-bottom:20px;
+
+}
