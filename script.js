@@ -1,14 +1,17 @@
-const envelope=document.getElementById("envelope");
-const screen=document.getElementById("envelopeScreen");
+const envelope = document.getElementById("envelope");
+const screen = document.getElementById("envelopeScreen");
+const hero = document.getElementById("hero");
 
 envelope.addEventListener("click",()=>{
 
-envelope.classList.add("open");
+    envelope.classList.add("open");
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
-screen.classList.add("hide");
+        screen.classList.add("hide");
 
-},1800);
+        hero.classList.add("show");
+
+    },1800);
 
 });
