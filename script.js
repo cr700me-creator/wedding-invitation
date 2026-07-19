@@ -173,3 +173,25 @@ lightbox.addEventListener("click", (e) => {
     }
 
 });
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+let isPlaying = false;
+
+musicBtn.addEventListener("click", () => {
+
+    if (isPlaying) {
+
+        music.pause();
+        musicBtn.innerHTML = "🔇";
+
+    } else {
+
+        music.play();
+        musicBtn.innerHTML = "🔊";
+
+    }
+
+    isPlaying = !isPlaying;
+
+});
