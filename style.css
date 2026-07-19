@@ -332,3 +332,124 @@ width:70px;
 }
 
 }
+/*=========================
+  Luxury Envelope
+=========================*/
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at center,#161616,#050505 70%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.envelope{
+
+    width:340px;
+    height:220px;
+
+    position:relative;
+
+    cursor:pointer;
+
+    perspective:1000px;
+
+}
+
+.envelope-back{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:#111;
+
+    border:2px solid #D4AF37;
+
+    border-radius:8px;
+
+    box-shadow:
+    0 0 50px rgba(212,175,55,.25);
+
+}
+
+.flap{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:110px;
+
+    background:#181818;
+
+    clip-path:polygon(0 0,100% 0,50% 100%);
+
+    transform-origin:top;
+
+    transition:1.2s;
+
+    border-bottom:2px solid #D4AF37;
+
+}
+
+.letter{
+
+    position:absolute;
+
+    width:90%;
+    height:170px;
+
+    left:5%;
+    top:25px;
+
+    background:#faf8f2;
+
+    color:#111;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    border-radius:10px;
+
+    transition:1.2s;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
+
+}
+
+.letter h2{
+
+    color:#B8860B;
+
+}
+
+.letter p{
+
+    margin-top:15px;
+
+}
+
+.open .flap{
+
+    transform:rotateX(180deg);
+
+}
+
+.open .letter{
+
+    transform:translateY(-140px);
+
+}
