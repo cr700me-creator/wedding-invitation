@@ -1,29 +1,25 @@
-const envelope=document.getElementById("envelope");
+// =========================
+// فتح الظرف
+// =========================
 
-const loader=document.getElementById("loader");
+const envelope = document.getElementById("envelope");
+const loader = document.getElementById("loader");
+const mainPage = document.getElementById("mainPage");
 
-const main=document.getElementById("mainPage");
-
-envelope.onclick=()=>{
+envelope.addEventListener("click", () => {
 
     envelope.classList.add("open");
 
-    setTimeout(()=>{
+    setTimeout(() => {
+        loader.style.opacity = "0";
+    }, 1700);
 
-        loader.style.opacity="0";
+    setTimeout(() => {
+        loader.style.display = "none";
+        mainPage.style.display = "block";
+    }, 2400);
 
-    },1700);
-
-    setTimeout(()=>{
-
-        loader.style.display="none";
-
-        main.style.display="block";
-
-    },2400);
-
-};
-
+});
 openBtn.addEventListener("click", () => {
 
     loader.style.opacity = "0";
