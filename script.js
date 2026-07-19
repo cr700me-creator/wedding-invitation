@@ -12,21 +12,3 @@ screen.classList.add("hide");
 },1800);
 
 });
-
-s.y+=s.d;
-
-if(s.y>canvas.height){
-
-s.y=0;
-
-s.x=Math.random()*canvas.width;
-
-}
-
-}
-
-requestAnimationFrame(draw);
-
-}
-
-draw();
