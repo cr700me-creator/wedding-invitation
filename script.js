@@ -1,40 +1,17 @@
-const canvas = document.getElementById("stars");
-const ctx = canvas.getContext("2d");
+const envelope=document.getElementById("envelope");
+const screen=document.getElementById("envelopeScreen");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+envelope.addEventListener("click",()=>{
 
-let stars = [];
+envelope.classList.add("open");
 
-for(let i=0;i<150;i++){
+setTimeout(()=>{
 
-stars.push({
+screen.classList.add("hide");
 
-x:Math.random()*canvas.width,
-
-y:Math.random()*canvas.height,
-
-r:Math.random()*2,
-
-d:Math.random()*1
+},1800);
 
 });
-
-}
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle="#d4af37";
-
-for(let s of stars){
-
-ctx.beginPath();
-
-ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-
-ctx.fill();
 
 s.y+=s.d;
 
