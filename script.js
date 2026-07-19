@@ -1,28 +1,55 @@
-const weddingDate = new Date("October 16, 2026 20:00:00").getTime();
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
 
-const countdown = document.createElement("div");
-countdown.id = "countdown";
-countdown.style.marginTop = "40px";
-countdown.style.fontSize = "28px";
-countdown.style.color = "#d4af37";
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-document.querySelector("#details").appendChild(countdown);
+let stars = [];
 
-setInterval(() => {
-    const now = new Date().getTime();
+for(let i=0;i<150;i++){
 
-    const distance = weddingDate - now;
+stars.push({
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+x:Math.random()*canvas.width,
 
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+y:Math.random()*canvas.height,
 
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+r:Math.random()*2,
 
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+d:Math.random()*1
 
-    countdown.innerHTML =
-        `<h3>باقي على فرحتنا ❤️</h3>
-         <p>${days} يوم : ${hours} ساعة : ${minutes} دقيقة : ${seconds} ثانية</p>`;
+});
 
-}, 1000);
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#d4af37";
+
+for(let s of stars){
+
+ctx.beginPath();
+
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+
+ctx.fill();
+
+s.y+=s.d;
+
+if(s.y>canvas.height){
+
+s.y=0;
+
+s.x=Math.random()*canvas.width;
+
+}
+
+}
+
+requestAnimationFrame(draw);
+
+}
+
+draw();
