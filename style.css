@@ -523,3 +523,86 @@ opacity:1;
 }
 
 }
+/*=========================
+  Gold Particles
+=========================*/
+
+.particles{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:-1;
+
+}
+
+.particles span{
+
+position:absolute;
+
+display:block;
+
+width:4px;
+height:4px;
+
+background:#D4AF37;
+
+border-radius:50%;
+
+box-shadow:0 0 10px #D4AF37;
+
+animation:float 12s linear infinite;
+
+}
+
+.particles span:nth-child(1){left:8%;animation-delay:0s;}
+.particles span:nth-child(2){left:18%;animation-delay:2s;}
+.particles span:nth-child(3){left:28%;animation-delay:5s;}
+.particles span:nth-child(4){left:38%;animation-delay:1s;}
+.particles span:nth-child(5){left:48%;animation-delay:6s;}
+.particles span:nth-child(6){left:58%;animation-delay:3s;}
+.particles span:nth-child(7){left:68%;animation-delay:8s;}
+.particles span:nth-child(8){left:78%;animation-delay:4s;}
+.particles span:nth-child(9){left:88%;animation-delay:7s;}
+.particles span:nth-child(10){left:95%;animation-delay:9s;}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(110vh);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+80%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-10vh);
+
+opacity:0;
+
+}
+
+}
