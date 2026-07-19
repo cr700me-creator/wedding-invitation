@@ -195,3 +195,15 @@ transform:translateY(-120px);
 opacity:0;
 visibility:hidden;
 }
+.hero{
+opacity:0;
+transform:scale(1.08);
+filter:blur(20px);
+transition:1.5s;
+}
+
+.hero.show{
+opacity:1;
+transform:scale(1);
+filter:blur(0);
+}
