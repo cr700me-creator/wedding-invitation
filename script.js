@@ -195,3 +195,57 @@ musicBtn.addEventListener("click", () => {
     isPlaying = !isPlaying;
 
 });
+// =========================
+// تأكيد الحضور - Google Forms
+// =========================
+
+const submitBtn = document.getElementById("submitRSVP");
+
+if (submitBtn) {
+
+    submitBtn.addEventListener("click", async () => {
+
+        const name = document.getElementById("guestName").value.trim();
+        const count = document.getElementById("guestCount").value.trim();
+        const message = document.getElementById("successMessage");
+
+        if (!name || !count) {
+
+            message.style.color = "#ff4d4d";
+            message.innerHTML = "من فضلك أدخل الاسم وعدد الأفراد.";
+
+            return;
+        }
+
+        const formData = new FormData();
+
+        formData.append("entry.1191958432", name);
+        formData.append("entry.2009975521", count);
+
+        try {
+
+            await fetch(
+                "https://docs.google.com/forms/d/e/1FAIpQLSf8R7Hao9hjM8FbeYxNzbGaTrNQeN8ZqibRgEgz-SZA_ZBhNg/formResponse",
+                {
+                    method: "POST",
+                    mode: "no-cors",
+                    body: formData
+                }
+            );
+
+            message.style.color = "#D4AF37";
+            message.innerHTML = "🤍 تم تسجيل تأكيد الحضور بنجاح.";
+
+            document.getElementById("guestName").value = "";
+            document.getElementById("guestCount").value = "";
+
+        } catch (error) {
+
+            message.style.color = "#ff4d4d";
+            message.innerHTML = "حدث خطأ، حاول مرة أخرى.";
+
+        }
+
+    });
+
+}
