@@ -1,58 +1,102 @@
 // =========================
-// شاشة البداية
+// عناصر الصفحة
 // =========================
 
-const intro = document.getElementById("intro");
-const startBtn = document.getElementById("startBtn");
+const loader = document.getElementById("loader");
+const mainPage = document.getElementById("mainPage");
+const openBtn = document.getElementById("openInvitation");
 
-startBtn.addEventListener("click", () => {
+// =========================
+// فتح الدعوة
+// =========================
 
-    intro.style.opacity = "0";
+openBtn.addEventListener("click", () => {
+
+    loader.style.opacity = "0";
 
     setTimeout(() => {
 
-        intro.style.display = "none";
+        loader.style.display = "none";
+        mainPage.style.display = "block";
 
-    }, 1000);
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    },1000);
 
 });
 
-
 // =========================
-// العداد التنازلي
+// العداد
 // =========================
 
-const targetDate = new Date("2026-10-16T20:00:00").getTime();
+const weddingDate = new Date("2026-10-16T20:00:00").getTime();
 
-const countdown = document.getElementById("countdown");
+const days = document.getElementById("days");
+const hours = document.getElementById("hours");
+const minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
 
-function updateCountdown(){
+function countdown(){
 
     const now = new Date().getTime();
 
-    const distance = targetDate - now;
+    const distance = weddingDate-now;
 
-    if(distance < 0){
+    if(distance<=0){
 
-        countdown.innerHTML = "🎉 بدأ الحفل";
+        days.innerHTML="0";
+        hours.innerHTML="0";
+        minutes.innerHTML="0";
+        seconds.innerHTML="0";
 
         return;
 
     }
 
-    const days = Math.floor(distance/(1000*60*60*24));
+    days.innerHTML=Math.floor(distance/(1000*60*60*24));
 
-    const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    hours.innerHTML=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 
-    const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+    minutes.innerHTML=Math.floor((distance%(1000*60*60))/(1000*60));
 
-    const seconds = Math.floor((distance%(1000*60))/1000);
-
-    countdown.innerHTML =
-    `${days} يوم<br>${hours} ساعة : ${minutes} دقيقة : ${seconds} ثانية`;
+    seconds.innerHTML=Math.floor((distance%(1000*60))/1000);
 
 }
 
-updateCountdown();
+countdown();
 
-setInterval(updateCountdown,1000);
+setInterval(countdown,1000);
+
+// =========================
+// حركة عند النزول
+// =========================
+
+const cards = document.querySelectorAll(".glass-card");
+
+const observer = new IntersectionObserver(entries=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity="1";
+            entry.target.style.transform="translateY(0)";
+
+        }
+
+    });
+
+});
+
+cards.forEach(card=>{
+
+    card.style.opacity="0";
+    card.style.transform="translateY(60px)";
+    card.style.transition=".8s";
+
+    observer.observe(card);
+
+});
