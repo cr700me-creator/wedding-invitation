@@ -23,13 +23,6 @@ envelope.onclick=()=>{
     },2400);
 
 };
-const loader = document.getElementById("loader");
-const mainPage = document.getElementById("mainPage");
-const openBtn = document.getElementById("openInvitation");
-
-// =========================
-// فتح الدعوة
-// =========================
 
 openBtn.addEventListener("click", () => {
 
