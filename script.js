@@ -1,45 +1,44 @@
 // =========================
-// فتح الظرف
+// Luxury Wedding Invitation
+// Script.js
 // =========================
 
+// العناصر الأساسية
 const envelope = document.getElementById("envelope");
 const loader = document.getElementById("loader");
 const mainPage = document.getElementById("mainPage");
 
-envelope.addEventListener("click", () => {
+// =========================
+// فتح الظرف
+// =========================
 
-    envelope.classList.add("open");
+if (envelope) {
 
-    setTimeout(() => {
-        loader.style.opacity = "0";
-    }, 1700);
+    envelope.addEventListener("click", () => {
 
-    setTimeout(() => {
-        loader.style.display = "none";
-        mainPage.style.display = "block";
-    }, 2400);
+        envelope.classList.add("open");
 
-});
-openBtn.addEventListener("click", () => {
+        setTimeout(() => {
+            loader.style.opacity = "0";
+        }, 1700);
 
-    loader.style.opacity = "0";
+        setTimeout(() => {
+            loader.style.display = "none";
+            mainPage.style.display = "block";
 
-    setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
-        loader.style.display = "none";
-        mainPage.style.display = "block";
+        }, 2400);
 
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
+    });
 
-    },1000);
-
-});
+}
 
 // =========================
-// العداد
+// العداد التنازلي
 // =========================
 
 const weddingDate = new Date("2026-10-16T20:00:00").getTime();
@@ -49,64 +48,92 @@ const hours = document.getElementById("hours");
 const minutes = document.getElementById("minutes");
 const seconds = document.getElementById("seconds");
 
-function countdown(){
+function updateCountdown() {
 
     const now = new Date().getTime();
 
-    const distance = weddingDate-now;
+    const distance = weddingDate - now;
 
-    if(distance<=0){
+    if (distance <= 0) {
 
-        days.innerHTML="0";
-        hours.innerHTML="0";
-        minutes.innerHTML="0";
-        seconds.innerHTML="0";
+        if (days) days.innerHTML = "0";
+        if (hours) hours.innerHTML = "0";
+        if (minutes) minutes.innerHTML = "0";
+        if (seconds) seconds.innerHTML = "0";
 
         return;
-
     }
 
-    days.innerHTML=Math.floor(distance/(1000*60*60*24));
+    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-    hours.innerHTML=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-
-    minutes.innerHTML=Math.floor((distance%(1000*60*60))/(1000*60));
-
-    seconds.innerHTML=Math.floor((distance%(1000*60))/1000);
+    if (days) days.innerHTML = d;
+    if (hours) hours.innerHTML = h;
+    if (minutes) minutes.innerHTML = m;
+    if (seconds) seconds.innerHTML = s;
 
 }
 
-countdown();
+updateCountdown();
 
-setInterval(countdown,1000);
+setInterval(updateCountdown, 1000);
 
 // =========================
-// حركة عند النزول
+// ظهور البطاقات أثناء النزول
 // =========================
 
 const cards = document.querySelectorAll(".glass-card");
 
-const observer = new IntersectionObserver(entries=>{
+if (cards.length > 0) {
 
-    entries.forEach(entry=>{
+    const observer = new IntersectionObserver((entries) => {
 
-        if(entry.isIntersecting){
+        entries.forEach((entry) => {
 
-            entry.target.style.opacity="1";
-            entry.target.style.transform="translateY(0)";
+            if (entry.isIntersecting) {
 
-        }
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.2
+    });
+
+    cards.forEach((card) => {
+
+        card.style.opacity = "0";
+        card.style.transform = "translateY(60px)";
+        card.style.transition = "all .8s ease";
+
+        observer.observe(card);
 
     });
 
-});
+}
 
-cards.forEach(card=>{
+// =========================
+// زر موقع القاعة (اختياري)
+// =========================
 
-    card.style.opacity="0";
-    card.style.transform="translateY(60px)";
-    card.style.transition=".8s";
+const locationBtn = document.querySelector(".gold-btn[href='#']");
 
-    observer.observe(card);
+if (locationBtn) {
 
-});
+    locationBtn.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        window.open(
+            "https://maps.google.com/?q=قاعة+جاردينيا+الإسماعيلية",
+            "_blank"
+        );
+
+    });
+
+}
