@@ -1,6 +1,6 @@
-/* ===========================
+/* =========================
    RESET
-=========================== */
+========================= */
 
 *{
     margin:0;
@@ -19,544 +19,316 @@ body{
     overflow-x:hidden;
 }
 
-/* ===========================
-   INTRO SCREEN
-=========================== */
+/* =========================
+   شاشة البداية
+========================= */
 
-#intro{
-    width:100%;
-    height:100vh;
+#loader{
+    position:fixed;
+    inset:0;
     background:#050505;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center;
-    position:fixed;
-    top:0;
-    left:0;
     z-index:9999;
     transition:1s;
 }
 
-.gold-logo{
+.logo{
     width:120px;
     height:120px;
+    border:2px solid #D4AF37;
     border-radius:50%;
-    border:2px solid #d4af37;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:48px;
-    color:#d4af37;
-    margin-bottom:30px;
-    box-shadow:0 0 30px rgba(212,175,55,.3);
+    font-size:50px;
+    color:#D4AF37;
+    margin-bottom:25px;
     animation:pulse 2s infinite;
 }
 
-#intro h1{
-    font-size:44px;
-    color:white;
-}
-
-#intro span{
-    color:#d4af37;
-}
-
-#intro p{
-    margin-top:15px;
-    color:#d4af37;
+#loader h3{
+    color:#D4AF37;
     letter-spacing:4px;
+    font-weight:300;
 }
 
-#startBtn{
-    margin-top:40px;
+#loader h1{
+    margin:20px 0;
+    text-align:center;
+    font-size:42px;
+}
+
+#loader span{
+    color:#D4AF37;
+}
+
+#openInvitation{
+    margin-top:35px;
     padding:16px 45px;
-    background:#d4af37;
-    color:black;
     border:none;
     border-radius:40px;
-    cursor:pointer;
+    background:#D4AF37;
+    color:#111;
     font-size:18px;
-    font-weight:bold;
+    cursor:pointer;
+    transition:.4s;
 }
 
-/* ===========================
-   HERO
-=========================== */
+#openInvitation:hover{
+    transform:scale(1.05);
+}
 
-#hero{
-    height:100vh;
-    background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-    url("https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop") center/cover;
+/* =========================
+   الصفحة الرئيسية
+========================= */
+
+#mainPage{
+    display:none;
+}
+
+.hero{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.8)),
+    url("https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1800&auto=format&fit=crop")
+    center/cover;
+
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
+
 }
 
 .hero-content{
     width:90%;
-    max-width:800px;
+    max-width:850px;
 }
 
-.hero-content h4{
-    color:#d4af37;
-    margin-bottom:20px;
+.small{
+    color:#D4AF37;
+    letter-spacing:3px;
 }
 
-.hero-content h1{
-    font-size:55px;
+.hero h1{
+    font-size:60px;
     margin:15px 0;
 }
 
 .heart{
-    color:#d4af37;
+    color:#D4AF37;
     font-size:40px;
+    animation:pulse 2s infinite;
 }
 
-.hero-content p{
-    margin:30px 0;
-    font-size:22px;
+.subtitle{
+    margin:35px auto;
     line-height:2;
-}
-
-/* ===========================
-   BUTTON
-=========================== */
-
-.btn{
-    display:inline-block;
-    padding:15px 45px;
-    border:2px solid #d4af37;
-    color:#d4af37;
-    text-decoration:none;
-    border-radius:40px;
-    transition:.4s;
-}
-
-.btn:hover{
-    background:#d4af37;
-    color:black;
-}
-
-/* ===========================
-   DETAILS
-=========================== */
-
-#details{
-    padding:100px 20px;
-}
-
-.card{
-    max-width:700px;
-    margin:auto;
-    padding:40px;
-    border-radius:25px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(212,175,55,.35);
-    text-align:center;
-}
-
-.card h2{
-    color:#d4af37;
-    margin-bottom:30px;
-}
-
-.card p{
-    margin:18px 0;
+    max-width:650px;
     font-size:22px;
 }
 
-#countdown{
-    margin:40px 0;
-    font-size:30px;
-    color:#d4af37;
-    font-weight:bold;
-}
+/* =========================
+   زر ذهبي
+========================= */
 
-/* ===========================
-   ANIMATION
-=========================== */
+.gold-btn{
 
-@keyframes pulse{
+display:inline-block;
 
-0%{
-transform:scale(1);
-}
+padding:15px 45px;
 
-50%{
-transform:scale(1.05);
-}
+text-decoration:none;
 
-100%{
-transform:scale(1);
-}
+color:#D4AF37;
 
-}
+border:2px solid #D4AF37;
 
-/* ===========================
-   MOBILE
-=========================== */
+border-radius:40px;
 
-@media(max-width:768px){
+transition:.4s;
 
-.hero-content h1{
-font-size:36px;
-}
+background:transparent;
 
-.hero-content p{
-font-size:18px;
-}
-
-.card{
-padding:25px;
-}
-
-.card p{
-font-size:18px;
-}
-
-}    padding:20px;
-}
-
-.content h3{
-    color:#d4af37;
-    font-weight:300;
-    margin-bottom:20px;
-}
-.content h1{
-    font-size:55px;
-    color:#fff;
-    position:relative;
-    display:inline-block;
-    overflow:hidden;
-    margin:10px 0;
-}
-
-.content h1::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-120%;
-    width:70%;
-    height:100%;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.8),
-        transparent
-    );
-    transform:skewX(-25deg);
-    animation:shine 4s infinite;
-}
-
-@keyframes shine{
-    0%{
-        left:-120%;
-    }
-    100%{
-        left:150%;
-    }
-}
+cursor:pointer;
 
 }
 
-.heart{
-    font-size:40px;
-    color:#d4af37;
-    margin:15px 0;
+.gold-btn:hover{
+
+background:#D4AF37;
+
+color:#111;
+
 }
 
-.content p{
-    margin:30px auto;
-    max-width:600px;
-    line-height:2;
-    font-size:20px;
+/* =========================
+   التفاصيل
+========================= */
+
+section{
+
+padding:90px 20px;
+
 }
 
-.btn{
-    display:inline-block;
-    padding:15px 45px;
-    border:2px solid #d4af37;
-    color:#d4af37;
-    text-decoration:none;
-    border-radius:50px;
-    transition:.4s;
-  box-shadow:0 0 25px rgba(212,175,55,.35);
-font-weight:bold;  
-}
+.glass-card{
 
-.btn:hover{
-    background:#d4af37;
-    color:#000;
-}
-
-#details{
-    padding:90px 20px;
-    text-align:center;
-}
-
-#details h2{
-    color:#d4af37;
-    font-size:38px;
-    margin-bottom:40px;
-}
-.card{
-
-max-width:750px;
+max-width:760px;
 
 margin:auto;
 
 padding:45px;
 
-border-radius:30px;
-
 background:rgba(255,255,255,.08);
 
 backdrop-filter:blur(18px);
 
--webkit-backdrop-filter:blur(18px);
-
 border:1px solid rgba(212,175,55,.35);
 
-box-shadow:
+border-radius:30px;
 
-0 10px 40px rgba(0,0,0,.45),
+text-align:center;
 
-0 0 35px rgba(212,175,55,.15);
-
-transition:.5s;
+box-shadow:0 15px 40px rgba(0,0,0,.45);
 
 }
 
-.card:hover{
+.glass-card h2{
 
-transform:translateY(-8px);
+color:#D4AF37;
 
-box-shadow:
+margin-bottom:30px;
 
-0 20px 60px rgba(212,175,55,.35);
-
-}
-}
-
-.card p{
-    margin:18px 0;
-    font-size:22px;
-}
-
-@media(max-width:768px){
-
-.content h1{
-font-size:38px;
-}
-
-.content p{
-font-size:18px;
-}
-
-.card p{
-font-size:18px;
-}
-
-}
-#stars{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-2;
-background:#050505;
-}
-#envelopeScreen{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#050505;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-transition:1s;
-}
-
-.envelope{
-
-width:340px;
-height:220px;
-background:linear-gradient(145deg,#111,#1b1b1b);
-
-border:2px solid #d4af37;
-
-border-radius:8px;
-
-position:relative;
-
-cursor:pointer;
-
-box-shadow:
-0 15px 50px rgba(0,0,0,.7),
-0 0 40px rgba(212,175,55,.25);
-
-transform:scale(.2);
-
-opacity:0;
-
-animation:envelopeIntro 2s forwards;
-
-transition:.5s;
+font-size:34px;
 
 }
 
-.envelope:hover{
+.item{
 
-transform:scale(1.03);
-
-box-shadow:
-0 0 60px rgba(212,175,55,.55);
-
-}
-
-@keyframes envelopeIntro{
-
-0%{
-
-opacity:0;
-
-transform:scale(.2) rotate(-8deg);
-
-}
-
-70%{
-
-opacity:1;
-
-transform:scale(1.05);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:scale(1);
-
-}
-
-}
-
-.flap{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:110px;
-background:#1b1b1b;
-clip-path:polygon(0 0,100% 0,50% 100%);
-transform-origin:top;
-transition:1s;
-border-bottom:2px solid #d4af37;
-}
-
-.letter{
-
-position:absolute;
-
-width:90%;
-
-height:175px;
-
-left:5%;
-
-top:22px;
-
-background:linear-gradient(to bottom,#fff,#f8f5ef);
-
-border-radius:10px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-flex-direction:column;
-
-transition:1s;
-
-box-shadow:0 10px 30px rgba(0,0,0,.3);
-
-}
-
-.letter h2{
-color:#b8860b;
-margin-bottom:10px;
-}
-
-.open .flap{
-transform:rotateX(180deg);
-}
-
-.open .letter{
-transform:translateY(-120px);
-}
-
-.hide{
-opacity:0;
-visibility:hidden;
-}
-.hero{
-opacity:0;
-transform:scale(1.08);
-filter:blur(20px);
-transition:1.5s;
-}
-
-.hero.show{
-opacity:1;
-transform:scale(1);
-filter:blur(0);
-}
-.btn{
-    animation:glow 2.5s infinite;
-}
-
-@keyframes glow{
-
-0%{
-box-shadow:0 0 8px rgba(212,175,55,.2);
-}
-
-50%{
-box-shadow:0 0 30px rgba(212,175,55,.8);
-}
-
-100%{
-box-shadow:0 0 8px rgba(212,175,55,.2);
-}
-
-}
-.card p{
+margin:18px 0;
 
 font-size:22px;
 
-margin:20px 0;
+}
 
-line-height:2;
+/* =========================
+   العداد
+========================= */
+
+#countdown{
+
+margin:45px 0;
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+flex-wrap:wrap;
 
 }
 
-.card h2{
+.time{
 
-color:#d4af37;
+width:90px;
 
-font-size:36px;
+padding:15px;
 
-margin-bottom:20px;
+border:1px solid rgba(212,175,55,.35);
+
+border-radius:18px;
+
+background:rgba(255,255,255,.05);
+
+}
+
+.time span{
+
+display:block;
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#D4AF37;
+
+}
+
+.time small{
+
+color:#ddd;
+
+}
+
+/* =========================
+   RSVP
+========================= */
+
+input{
+
+width:100%;
+
+padding:16px;
+
+margin:12px 0;
+
+background:#111;
+
+border:1px solid rgba(212,175,55,.35);
+
+border-radius:12px;
+
+color:white;
+
+font-size:16px;
+
+}
+
+/* =========================
+   حركة
+========================= */
+
+@keyframes pulse{
+
+0%{transform:scale(1);}
+
+50%{transform:scale(1.08);}
+
+100%{transform:scale(1);}
+
+}
+
+/* =========================
+   موبايل
+========================= */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:38px;
+}
+
+.subtitle{
+font-size:18px;
+}
+
+.glass-card{
+padding:25px;
+}
+
+.item{
+font-size:18px;
+}
+
+.time{
+width:70px;
+}
 
 }
