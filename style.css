@@ -119,15 +119,43 @@ font-weight:bold;
     font-size:38px;
     margin-bottom:40px;
 }
-
 .card{
-    max-width:700px;
-    margin:auto;
-    background:#111;
-    border:1px solid rgba(212,175,55,.4);
-    border-radius:20px;
-    padding:35px;
-    box-shadow:0 0 40px rgba(212,175,55,.15);
+
+max-width:750px;
+
+margin:auto;
+
+padding:45px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+border:1px solid rgba(212,175,55,.35);
+
+box-shadow:
+
+0 10px 40px rgba(0,0,0,.45),
+
+0 0 35px rgba(212,175,55,.15);
+
+transition:.5s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+
+0 20px 60px rgba(212,175,55,.35);
+
+}
 }
 
 .card p{
