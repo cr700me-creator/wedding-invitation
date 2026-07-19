@@ -1,3 +1,7 @@
+/* ===========================
+   RESET
+=========================== */
+
 *{
     margin:0;
     padding:0;
@@ -12,9 +16,76 @@ body{
     font-family:'Cairo',sans-serif;
     background:#050505;
     color:#fff;
+    overflow-x:hidden;
 }
 
-.hero{
+/* ===========================
+   INTRO SCREEN
+=========================== */
+
+#intro{
+    width:100%;
+    height:100vh;
+    background:#050505;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:9999;
+    transition:1s;
+}
+
+.gold-logo{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    border:2px solid #d4af37;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:48px;
+    color:#d4af37;
+    margin-bottom:30px;
+    box-shadow:0 0 30px rgba(212,175,55,.3);
+    animation:pulse 2s infinite;
+}
+
+#intro h1{
+    font-size:44px;
+    color:white;
+}
+
+#intro span{
+    color:#d4af37;
+}
+
+#intro p{
+    margin-top:15px;
+    color:#d4af37;
+    letter-spacing:4px;
+}
+
+#startBtn{
+    margin-top:40px;
+    padding:16px 45px;
+    background:#d4af37;
+    color:black;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+#hero{
     height:100vh;
     background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
     url("https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop") center/cover;
@@ -22,19 +93,132 @@ body{
     justify-content:center;
     align-items:center;
     text-align:center;
-    position:relative;
 }
 
-.overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.35);
+.hero-content{
+    width:90%;
+    max-width:800px;
 }
 
-.content{
-    position:relative;
-    z-index:2;
-    padding:20px;
+.hero-content h4{
+    color:#d4af37;
+    margin-bottom:20px;
+}
+
+.hero-content h1{
+    font-size:55px;
+    margin:15px 0;
+}
+
+.heart{
+    color:#d4af37;
+    font-size:40px;
+}
+
+.hero-content p{
+    margin:30px 0;
+    font-size:22px;
+    line-height:2;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.btn{
+    display:inline-block;
+    padding:15px 45px;
+    border:2px solid #d4af37;
+    color:#d4af37;
+    text-decoration:none;
+    border-radius:40px;
+    transition:.4s;
+}
+
+.btn:hover{
+    background:#d4af37;
+    color:black;
+}
+
+/* ===========================
+   DETAILS
+=========================== */
+
+#details{
+    padding:100px 20px;
+}
+
+.card{
+    max-width:700px;
+    margin:auto;
+    padding:40px;
+    border-radius:25px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(212,175,55,.35);
+    text-align:center;
+}
+
+.card h2{
+    color:#d4af37;
+    margin-bottom:30px;
+}
+
+.card p{
+    margin:18px 0;
+    font-size:22px;
+}
+
+#countdown{
+    margin:40px 0;
+    font-size:30px;
+    color:#d4af37;
+    font-weight:bold;
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.05);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:36px;
+}
+
+.hero-content p{
+font-size:18px;
+}
+
+.card{
+padding:25px;
+}
+
+.card p{
+font-size:18px;
+}
+
+}    padding:20px;
 }
 
 .content h3{
